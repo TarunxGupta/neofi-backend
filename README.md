@@ -201,11 +201,4 @@ Stored in: `notifications` table.
    (In postman, you can set the Collections Authorization Token and then use "Inherit from parent" for each request.
 5. Good to go!
 
-Covers:
-- Login + Auth
-- Event creation
-- Updates (to generate versions)
-- Versioning diff/history/rollback
-- Event delete
-
 ------------------------------------------------
