@@ -62,22 +62,29 @@ NEOFI BACKEND - COMPLETE USAGE GUIDE
    ```
 
 5. Use the returned access_token in headers:
+   ```
    Authorization: Bearer <access_token>
-
-6. Refresh:
+   ```
+   
+7. Refresh:
    POST /refresh
+   ```
    Header: Authorization: Bearer <refresh_token>
+   ```
 
-7. Logout:
+9. Logout:
    POST /logout
+   ```
    Header: Authorization: Bearer <access_token>
-
+   ```
+   
 ------------------------------------------------
 
 📅 EVENT ROUTES (CRUD + SHARE + VERSIONS)
 -----------------------------------------
 
 1. Create Event:
+   ```
    POST /events
    {
      "title": "My Event",
@@ -88,48 +95,57 @@ NEOFI BACKEND - COMPLETE USAGE GUIDE
      "is_recurring": false,
      "recurrence_pattern": null
    }
+   ```
 
-2. Batch Create Events:
+3. Batch Create Events:
    POST /events/batch
+   ```
    [
      { "title": "E1", "start_time": "...", "end_time": "..." },
      { "title": "E2", "start_time": "...", "end_time": "..." }
    ]
+   ```
 
-3. Get All Events:
+5. Get All Events:
    GET /events
 
-4. Get Event by ID:
+6. Get Event by ID:
    GET /events/{event_id}
 
-5. Update Event:
+7. Update Event:
    PUT /events/{event_id}
+   ```
    {
      "title": "Updated",
      "description": "Changed",
      "start_time": "...",
      "end_time": "..."
    }
+   ```
 
-6. Delete Event:
+9. Delete Event:
    DELETE /events/{event_id}
 
-7. Share Event:
+10. Share Event:
    POST /events/{event_id}/share
+   ```
    {
      "users": [{ "user_id": 2, "role": "viewer" }]
    }
+   ```
 
-8. Get Permissions:
+12. Get Permissions:
    GET /events/{event_id}/permissions
 
-9. Update Permission:
+13. Update Permission:
    PUT /events/{event_id}/permissions/{user_id}
+   ```
    {
      "role": "editor"
    }
+   ```
 
-10. Delete Permission:
+14. Delete Permission:
     DELETE /events/{event_id}/permissions/{user_id}
 
 ------------------------------------------------
