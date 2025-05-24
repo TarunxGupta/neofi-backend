@@ -6,11 +6,13 @@ NEOFI BACKEND - COMPLETE USAGE GUIDE
 
 1. Clone the repo and install dependencies:
 
+```
    $ git clone <your-repo-url>
    $ cd <project-folder>
    $ python -m venv venv
    $ source venv/bin/activatevenv
    $ pip install -r requirements.txt
+```
 
 2. Create a `.env` file:
 
