@@ -16,19 +16,25 @@ NEOFI BACKEND - COMPLETE USAGE GUIDE
 
 2. Create a `.env` file:
 
+```
    DATABASE_URL=(sql):///./neofi.db
    SECRET_KEY=your-secret
    ACCESS_TOKEN_EXPIRE_MINUTES=30
    REFRESH_TOKEN_EXPIRE_DAYS=7
+```
 
 3. Run Alembic migrations:
 
+```
    $ alembic revision --autogenerate -m "init"
    $ alembic upgrade head
+```
 
 4. Start the server:
 
+```
    $ uvicorn app.main:app --reload
+```
 
    Docs available at: http://localhost:8000/docs
 
@@ -39,26 +45,30 @@ NEOFI BACKEND - COMPLETE USAGE GUIDE
 
 1. Register:
    POST /register
+   ```
    {
      "username": "testuser",
      "email": "test@example.com",
      "password": "password123",
      "role": "owner"
    }
+   ```
 
-2. Login:
+3. Login:
    POST /login (form-data)
-   username = testuser
+   ```
+   username = testuser,
    password = password123
+   ```
 
-3. Use the returned access_token in headers:
+5. Use the returned access_token in headers:
    Authorization: Bearer <access_token>
 
-4. Refresh:
+6. Refresh:
    POST /refresh
    Header: Authorization: Bearer <refresh_token>
 
-5. Logout:
+7. Logout:
    POST /logout
    Header: Authorization: Bearer <access_token>
 
@@ -170,7 +180,10 @@ Stored in: `notifications` table.
 
 1. Make a PostgreSQL database.
 2. Add database credentials in .env file.
-4. Open localhost:8000/docs on your Web Browser or Use Postman.
+3. Open localhost:8000/docs on your Web Browser or Use Postman.
+4. Once you login, use the Auth Token to Authorize using the top right "Authorize" button.
+   (In postman, you can set the Collections Authorization Token and then use "Inherit from parent" for each request.
+5. Good to go!
 
 Covers:
 - Login + Auth
